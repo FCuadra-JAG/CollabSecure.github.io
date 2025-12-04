@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Política de privacidad — CollabSecure</title>
+    <link rel="stylesheet" href="static/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Política de privacidad</h1>
+      <nav>
+        <a href="index.html">Volver</a>
+      </nav>
+    </header>
+    <main>
+      <section class="card">
+        <h2>Resumen</h2>
+        <p>CollabSecure es una aplicación de ejemplo (MVP) para compartir mensajes entre usuarios.
+           Esta versión es puramente estática y almacena mensajes en el navegador (<code>localStorage</code>).
+        </p>
+
+        <p>Medidas y prácticas aplicadas:</p>
+        <ul>
+          <li>Hash de contraseñas en el cliente mediante la Web Crypto API (no se guardan contraseñas en texto plano en la sesión).</li>
+          <li>Validación y filtrado de contenido para evitar lenguaje ofensivo (lista básica).</li>
+          <li>Control de acceso: el tablero sólo aparece para usuarios autenticados (gestión en <code>sessionStorage</code>).</li>
+          <li>Los datos permanecen en el navegador del usuario y no se envían a servidores.</li>
+        </ul>
+
+        <p>Advertencia: para un entorno real, implemente servidores seguros, HTTPS/TLS, almacenamiento cifrado, auditoría y políticas de retención y acceso.</p>
+      </section>
+    </main>
+    <footer>
+      <small>CollabSecure — MVP estático</small>
+    </footer>
+  </body>
+</html>
