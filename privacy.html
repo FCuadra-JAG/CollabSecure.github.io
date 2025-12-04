@@ -36,3 +36,23 @@
     </footer>
   </body>
 </html>
+{% extends "base.html" %}
+{% block title %}Política de privacidad{% endblock %}
+
+{% block content %}
+<section class="privacy-page">
+  <h2>Política de privacidad (resumen)</h2>
+  <p>CollabSecure es una aplicación mínima para compartir mensajes entre usuarios.
+     Esta implementación de ejemplo almacena datos en memoria y no persiste información en bases de datos.</p>
+
+  <p>Medidas y prácticas aplicadas:</p>
+  <ul>
+    <li>Autenticación básica con contraseñas hasheadas (no se guarda en texto plano).</li>
+    <li>Validación y filtrado de contenido para evitar lenguaje ofensivo.</li>
+    <li>Los mensajes son visibles solo a usuarios autenticados.</li>
+    <li>Por ser un MVP de ejemplo, los datos no deben considerarse confidenciales.</li>
+  </ul>
+
+  <p>Si desea probar la aplicación en un entorno real, implemente almacenamiento seguro, TLS, auditoría y políticas de retención de datos.</p>
+</section>
+{% endblock %}
