@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}CollabSecure{% endblock %}</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>CollabSecure — Tablero</h1>
+      <nav>
+        {% if session.user %}
+        <span>Usuario: <strong>{{ session.user }}</strong></span>
+        <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+        {% else %}
+        <a href="{{ url_for('login') }}">Iniciar sesión</a>
+        {% endif %}
+        <a href="{{ url_for('privacy') }}">Política de privacidad</a>
+      </nav>
+    </header>
+
+    <main>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class="flashes">
+            {% for m in messages %}
+              <li>{{ m }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+      <small>Diseño MVP con medidas básicas de seguridad y privacidad.</small>
+    </footer>
+  </body>
+</html>
