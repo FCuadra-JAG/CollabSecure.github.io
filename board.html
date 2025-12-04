@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Tablero - CollabSecure{% endblock %}
+
+{% block content %}
+<section class="board">
+  <h2>Tablero de mensajes</h2>
+
+  <form method="post" action="{{ url_for('board') }}" class="post-form">
+    <label>Para (usuario o "Todos")
+      <input type="text" name="recipient" placeholder="Todos" />
+    </label>
+    <label>Mensaje
+      <textarea name="content" rows="3" maxlength="500" required></textarea>
+    </label>
+    <div class="actions">
+      <button type="submit">Enviar</button>
+    </div>
+  </form>
+
+  <h3>Mensajes recientes</h3>
+  {% if messages %}
+    <div class="messages">
+      {% for m in messages %}
+        <div class="card">
+          <div class="meta">
+            <strong>{{ m.sender }}</strong> → <em>{{ m.recipient }}</em>
+            <span class="ts">{{ m.ts }}</span>
+          </div>
+          <div class="content">{{ m.content | e }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No hay mensajes aún.</p>
+  {% endif %}
+</section>
+{% endblock %}
