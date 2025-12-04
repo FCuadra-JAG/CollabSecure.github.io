@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Iniciar sesión - CollabSecure{% endblock %}
+
+{% block content %}
+<section class="login">
+  <h2>Iniciar sesión</h2>
+  <form method="post" action="{{ url_for('login') }}">
+    <label>Usuario
+      <input type="text" name="username" required />
+    </label>
+    <label>Contraseña
+      <input type="password" name="password" required />
+    </label>
+    <label class="privacy">
+      <input type="checkbox" name="accept_privacy" value="1" /> Acepto la <a href="{{ url_for('privacy') }}">política de privacidad</a>
+    </label>
+    <div class="actions">
+      <button type="submit">Ingresar</button>
+    </div>
+  </form>
+
+  <div class="hints">
+    <p><strong>Usuarios de ejemplo:</strong> <code>alice</code> / <code>password123</code>  —  <code>bob</code> / <code>secret456</code></p>
+    <p>Este es un MVP: las contraseñas se almacenan hasheadas en memoria, y se requiere aceptar la política para usar la aplicación.</p>
+  </div>
+</section>
+{% endblock %}
