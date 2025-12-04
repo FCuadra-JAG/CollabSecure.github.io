@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CollabSecure — MVP (HTML)</title>
+    <link rel="stylesheet" href="static/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>CollabSecure — Tablero (HTML)</h1>
+      <nav>
+        <span id="nav-user"></span>
+        <a href="privacy.html" id="nav-privacy">Política de privacidad</a>
+        <a href="#" id="nav-logout" style="display:none">Cerrar sesión</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="login-section" class="card">
+        <h2>Iniciar sesión</h2>
+        <form id="login-form">
+          <label>Usuario
+            <input type="text" id="username" required />
+          </label>
+          <label>Contraseña
+            <input type="password" id="password" required />
+          </label>
+          <label class="privacy">
+            <input type="checkbox" id="accept-privacy" /> Acepto la <a href="privacy.html">política de privacidad</a>
+          </label>
+          <div class="actions">
+            <button type="submit">Ingresar</button>
+          </div>
+        </form>
+        <div class="hints">
+          <p><strong>Usuarios ejemplo:</strong> <code>alice</code> / <code>password123</code>  —  <code>bob</code> / <code>secret456</code></p>
+          <p>La aplicación usa hashing de contraseñas en el cliente y almacenamiento local para mensajes (MVP).</p>
+        </div>
+      </section>
+
+      <section id="board-section" class="card" style="display:none">
+        <h2>Tablero de mensajes</h2>
+        <form id="post-form">
+          <label>Para (usuario o "Todos")
+            <input type="text" id="recipient" placeholder="Todos" />
+          </label>
+          <label>Mensaje
+            <textarea id="content" rows="3" maxlength="500" required></textarea>
+          </label>
+          <div class="actions">
+            <button type="submit">Enviar</button>
+          </div>
+        </form>
+
+        <h3>Mensajes recientes</h3>
+        <div id="messages"></div>
+      </section>
+
+      <div id="flash" class="flash" style="display:none"></div>
+    </main>
+
+    <footer>
+      <small>Proyecto estático — medidas básicas de seguridad y privacidad (MVP).</small>
+    </footer>
+
+    <script src="static/js/app.js"></script>
+  </body>
+</html>
